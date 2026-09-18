@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
 
-test('homepage displays welcome heading', async ({ page }) => {
-  
-  await page.goto('https://the-internet.herokuapp.com/');
+import { HomePage } from '../pages/HomePage';
 
-  await expect (page.getByRole('heading', { name: 'Welcome to the-internet' })).toBeVisible();
-
+test ('homepage POM', async ({ page }) => {
+  const homePage = new HomePage(page);
+  await homePage.open();
+  await expect(homePage.welcomeHeading).toBeVisible();
 
 });
