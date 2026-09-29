@@ -22,4 +22,11 @@ Playwright gives each test a fresh browser context and page. This helps prevent 
 ### Problem encountered and resolution
 <!-- having different test at the beginning was causing a failure so I tried to reproduce the failure I used trace to see where exactly was it failing -->
 
->
+>## Milestone 2: POM
+this Page object model is a design pattern used to help with the organizations and the maintanability of the test suite. Example if a locator changes its easier to fix in one place and not having to look for dozens of test.
+
+## Concepts used:
+`first()`
+`Last()`
+`check`
+`uncheck`
