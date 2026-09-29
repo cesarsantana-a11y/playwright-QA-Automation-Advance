@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -15,4 +17,5 @@
   "dependencies": {
     "typescript": "^7.0.2"
   }
+
 }
