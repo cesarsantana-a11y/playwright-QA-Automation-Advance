@@ -13,6 +13,4 @@ test ('checkboxes2 marks it unchecked', async ({ page }) => {
     await checkboxesPage.open();
     await checkboxesPage.checkCheckbox2();
     await expect (checkboxesPage.checkbox2).not.toBeChecked();
-}
-)
-;
+});
