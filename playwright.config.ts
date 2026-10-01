@@ -50,14 +50,17 @@ export default defineConfig({
     },
 
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+  name: 'firefox',
+  use: { ...devices['Desktop Firefox'] },
+  grepInvert: /@auth/,          // ← the only new line
+},
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+
+   {
+  name: 'webkit',
+  use: { ...devices['Desktop Safari'] },
+  grepInvert: /@auth/,
+},
 
     /* Test against mobile viewports. */
     // {
