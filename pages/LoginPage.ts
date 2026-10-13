@@ -2,6 +2,7 @@ import {Page, Locator} from '@playwright/test';
 
 export class LoginPage {
     readonly page: Page;
+    
     readonly usernameinput: Locator;
     readonly passwordinput: Locator;
     readonly loginbutton: Locator;
@@ -13,11 +14,11 @@ export class LoginPage {
         this.usernameinput = page.getByLabel('Username' );
         this.passwordinput = page.getByLabel('Password' );
         this.loginbutton = page.getByRole('button', {name: 'Login'});
-        this.securepageheading = page.getByRole('heading', { name: 'Secure Area', exact: true });
+        this.securepageheading = page.getByRole('heading', { name: 'Secure Area page for Automation Testing Practice'});
     }
 
     async open() {
-        await this.page.goto('https://the-internet.herokuapp.com/login');
+        await this.page.goto('/login');
     }
 
     async login(username: string, password: string) {
