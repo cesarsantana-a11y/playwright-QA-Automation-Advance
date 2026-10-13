@@ -7,11 +7,11 @@ export class HomePage {
   constructor(page: Page) {
     this.page = page;
     this.welcomeHeading = page.getByRole('heading', {
-      name: 'Welcome to the-internet',
+      name: 'Sample applications for practice test automation',
     });
   }
 
   async open() {
-    await this.page.goto('https://the-internet.herokuapp.com/');
+    await this.page.goto('/');
   }
 }

@@ -7,11 +7,11 @@ export class CheckboxesPage {
     
     constructor(page: Page) {
         this.page = page;
-        this.checkbox1 = page.locator('input[type="checkbox"]').first();
-        this.checkbox2 = page.locator('input[type="checkbox"]').last();
+        this.checkbox1 = page.getByLabel('checkbox 1');
+        this.checkbox2 = page.getByLabel('checkbox 2');
     }
     async open() {
-        await this.page.goto('https://the-internet.herokuapp.com/checkboxes');
+        await this.page.goto('/checkboxes');
     }   
     async checkCheckbox1() { 
         await this.checkbox1.check();
