@@ -2,8 +2,15 @@ import {test, expect} from '@playwright/test';
 
 import {ContextMenuPage} from '../pages/ContextMenuPage';
 
-test('opens context menu and performs right click', async ({page}) => {
+test('Right clicks on hot spot and asserts alert message', async ({page}) => {
     const contextMenuPage = new ContextMenuPage(page);
-    await contextMenuPage.openContextMenu();
-    await contextMenuPage.rightClickOnContextMenu();
+    await contextMenuPage.open();
+    let alertMessage = '';
+
+    page.on('dialog', async dialog => {
+        alertMessage = dialog.message();
+        await dialog.accept();
+    });
+    await contextMenuPage.rightClickOnHotSpot();
+    expect(alertMessage).toBe('You selected a context menu');
 });

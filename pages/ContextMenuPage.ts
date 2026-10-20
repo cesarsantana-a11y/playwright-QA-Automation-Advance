@@ -2,17 +2,17 @@ import {Page, Locator} from '@playwright/test';
 
 export class ContextMenuPage {
     readonly page: Page;
-    readonly contextMenu: Locator;
+    readonly hotSpot: Locator;
 
     constructor (page: Page) {
         this.page = page;
-        this.contextMenu = page.locator('#hot-spot');
+        this.hotSpot = page.locator('#hot-spot');
     }
 
-    async openContextMenu() {
+    async open() {
         await this.page.goto('/context-menu');
     }
-    async rightClickOnContextMenu() {
-        await this.contextMenu.click({button: 'right'});
+    async rightClickOnHotSpot() {
+        await this.hotSpot.click({button: 'right'});
     }
 };
