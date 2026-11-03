@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('account has exactly one note - A', async ({ request }) => {
+test('creates and finds its own note - A', async ({ request }) => {
    test.skip(!process.env.NOTES_EMAIL, 'NOTES_EMAIL / NOTES_PASSWORD not set');
 
     const login = await request.post('/notes/api/users/login', {
@@ -29,7 +29,7 @@ test('account has exactly one note - A', async ({ request }) => {
 });
 
 
-test('account has exactly one note - B', async ({ request }) => {
+test('creates and finds its own note - B', async ({ request }) => {
    test.skip(!process.env.NOTES_EMAIL, 'NOTES_EMAIL / NOTES_PASSWORD not set');
 
     const login = await request.post('/notes/api/users/login', {
