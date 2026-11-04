@@ -19,6 +19,8 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
+  /* Fail the build if a test only passed on retry (CI only). */
+  failOnFlakyTests: !!process.env.CI,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
@@ -27,9 +29,9 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
      baseURL: 'https://practice.expandtesting.com',
-    /* Evidence capture. 'on' records a trace for every test, pass or fail —
-       useful while learning, too heavy for CI (see DevelopmentNotes). */
-    trace: 'on',
+    /* Evidence capture. CI: trace only the first retry of a failed test.
+       Local (no retries): keep a trace only for failed tests. */
+    trace: process.env.CI ? 'on-first-retry' : 'retain-on-failure',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
   },
